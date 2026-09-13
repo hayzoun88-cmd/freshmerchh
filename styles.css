@@ -91,6 +91,22 @@ section{position:relative}
 @keyframes introGlow{50%{transform:scale(1.12);opacity:.75}}
 
 /* ============================================================
+   SCROLL PROGRESS
+============================================================ */
+.scroll-progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:60;background:rgba(255,255,255,.06)}
+.scroll-progress span{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--blue-electric),var(--yellow));transition:width .1s linear}
+
+/* ============================================================
+   MARQUEE
+============================================================ */
+.marquee{position:relative;overflow:hidden;background:var(--blue-900);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0}
+.marquee__track{display:flex;width:max-content;gap:56px;animation:marqueeScroll 26s linear infinite}
+.marquee__track span{font:600 15px var(--font-display);letter-spacing:.1em;color:#5c6b86;white-space:nowrap}
+.marquee__track span:nth-child(odd){color:var(--yellow-soft)}
+@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee__track{animation:none}}
+
+/* ============================================================
    HEADER
 ============================================================ */
 .site-header{position:fixed;z-index:50;top:18px;left:50%;transform:translateX(-50%);width:min(calc(100% - 40px),1180px);height:68px;border:1px solid rgba(255,255,255,.1);background:rgba(4,11,24,.62);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:18px;display:flex;align-items:center;padding:0 14px 0 22px;transition:all var(--medium) var(--ease)}
@@ -117,6 +133,9 @@ section{position:relative}
 .hero__layout{min-height:100svh;display:grid;grid-template-columns:.85fr 1.15fr;align-items:center;gap:20px;padding-top:80px}
 .hero__copy{position:relative;z-index:3;max-width:610px}
 .hero h1{font:600 clamp(58px,7.4vw,112px)/.86 var(--font-display);letter-spacing:-.07em;margin:28px 0 28px}
+.hero h1 em{background:linear-gradient(100deg,var(--yellow-soft) 30%,#fff 45%,var(--yellow) 60%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 5s ease-in-out infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@media (prefers-reduced-motion:reduce){.hero h1 em{animation:none;background-position:0 0}}
 .hero__copy>p{max-width:490px;color:#a9b3c4;font-size:18px;line-height:1.75;margin:0 0 34px}
 .hero__actions{display:flex;gap:12px;flex-wrap:wrap}
 .hero__meta{display:flex;gap:32px;margin-top:48px;padding-top:20px;border-top:1px solid var(--line);max-width:500px}
@@ -155,8 +174,8 @@ section{position:relative}
 .card-content h3{font:600 32px var(--font-display);letter-spacing:-.04em;margin:6px 0}
 .card-content small{font-size:12.5px;color:#c3cddb}
 .card-content strong{position:absolute;right:0;bottom:4px;font-size:24px;font-weight:400}
-.universe-card{transition:transform var(--medium) var(--ease),box-shadow var(--medium) var(--ease)}
-.universe-card:hover{transform:translateY(-6px);box-shadow:0 25px 55px rgba(6,17,38,.2)}
+.universe-card{transition:transform var(--fast) var(--ease),box-shadow var(--medium) var(--ease);transform-style:preserve-3d;will-change:transform}
+.universe-card:hover{box-shadow:0 25px 55px rgba(6,17,38,.2)}
 .universe-card:hover .card-art{transform:scale(1.035);transition:transform .8s var(--ease)}
 .card-art{transition:transform .8s var(--ease)}
 

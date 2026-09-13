@@ -76,6 +76,13 @@ function initMobileMenu() {
    REVEAL ON SCROLL
 ============================================================ */
 function initRevealAnimations() {
+  const groups = $$(".universe-grid, .craft-list, .product__facts, .timeline, .work-grid");
+  groups.forEach(group => {
+    $$(".reveal", group).forEach((item, index) => {
+      item.style.transitionDelay = `${Math.min(index * 90, 360)}ms`;
+    });
+  });
+
   const items = $$(".reveal");
   if (!items.length) return;
 
@@ -88,6 +95,62 @@ function initRevealAnimations() {
   }, { threshold: 0.12, rootMargin: "0px 0px -40px" });
 
   items.forEach(item => observer.observe(item));
+}
+
+/* ============================================================
+   SCROLL PROGRESS
+============================================================ */
+function initScrollProgress() {
+  const bar = $("#scrollProgress span");
+  if (!bar) return;
+
+  const update = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+    bar.style.width = `${Math.min(ratio * 100, 100)}%`;
+  };
+
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+}
+
+/* ============================================================
+   MAGNETIC BUTTONS
+============================================================ */
+function initMagneticButtons() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !window.matchMedia("(pointer: fine)").matches) return;
+
+  $$(".button").forEach(button => {
+    button.addEventListener("pointermove", (event) => {
+      const rect = button.getBoundingClientRect();
+      const x = event.clientX - rect.left - rect.width / 2;
+      const y = event.clientY - rect.top - rect.height / 2;
+      button.style.transform = `translate(${x * 0.18}px, ${y * 0.35 - 3}px)`;
+    });
+    button.addEventListener("pointerleave", () => {
+      button.style.transform = "";
+    });
+  });
+}
+
+/* ============================================================
+   CARD TILT
+============================================================ */
+function initCardTilt() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !window.matchMedia("(pointer: fine)").matches) return;
+
+  $$(".universe-card").forEach(card => {
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(900px) rotateY(${x * 8}deg) rotateX(${y * -8}deg) translateY(-4px)`;
+    });
+    card.addEventListener("pointerleave", () => {
+      card.style.transform = "";
+    });
+  });
 }
 
 /* ============================================================
@@ -265,6 +328,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeader();
   initMobileMenu();
   initRevealAnimations();
+  initScrollProgress();
+  initMagneticButtons();
+  initCardTilt();
   initHeroParallax();
   initParallax();
   initProductSwitcher();
