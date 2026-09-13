@@ -310,8 +310,27 @@
         <span class="eyebrow">07 / CONTACT</span>
         <h2>Votre prochain<br><em>maillot commence ici.</em></h2>
         <p>Parlez-nous de votre projet. Une idée, un club, une équipe, une marque ou un événement.</p>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="contact-form__row">
+            <div class="contact-form__field">
+              <label for="cf-name">Nom</label>
+              <input type="text" id="cf-name" name="name" required autocomplete="name">
+            </div>
+            <div class="contact-form__field">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="email" required autocomplete="email">
+            </div>
+          </div>
+          <div class="contact-form__field">
+            <label for="cf-message">Votre projet</label>
+            <textarea id="cf-message" name="message" rows="4" required></textarea>
+          </div>
+          <p class="contact-form__status" id="cfStatus" role="status" aria-live="polite"></p>
+          <button type="submit" class="button button--yellow button--large">Envoyer ma demande <span aria-hidden="true">↗</span></button>
+        </form>
+
         <div class="cta__actions">
-          <a class="button button--yellow button--large" href="mailto:contact@freshmerch.fr">Parler de mon projet <span aria-hidden="true">↗</span></a>
           <a class="button button--light button--large" href="mailto:contact@freshmerch.fr">contact@freshmerch.fr</a>
         </div>
       </div>

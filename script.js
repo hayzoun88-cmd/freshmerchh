@@ -204,6 +204,34 @@ function initStudio() {
 }
 
 /* ============================================================
+   CONTACT FORM
+============================================================ */
+function initContactForm() {
+  const form = $("#contactForm");
+  const status = $("#cfStatus");
+  if (!form || !status) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const name = $("#cf-name", form).value.trim();
+    const email = $("#cf-email", form).value.trim();
+    const message = $("#cf-message", form).value.trim();
+
+    if (!name || !email || !message) {
+      status.textContent = "Merci de remplir tous les champs.";
+      return;
+    }
+
+    const subject = encodeURIComponent(`Nouveau projet FreshMerch — ${name}`);
+    const body = encodeURIComponent(`Nom : ${name}\nEmail : ${email}\n\n${message}`);
+    window.location.href = `mailto:contact@freshmerch.fr?subject=${subject}&body=${body}`;
+
+    status.textContent = "Votre messagerie va s'ouvrir avec votre demande pré-remplie.";
+  });
+}
+
+/* ============================================================
    SMOOTH NAVIGATION
 ============================================================ */
 function initSmoothNavigation() {
@@ -241,6 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initParallax();
   initProductSwitcher();
   initStudio();
+  initContactForm();
   initSmoothNavigation();
   initYear();
 });
