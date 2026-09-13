@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 100" role="img" aria-label="FreshMerch">
+  <rect width="310" height="100" rx="22" fill="none"/>
+  <text x="12" y="45" font-family="Arial Black, Arial, sans-serif" font-size="39" font-weight="900"
+        letter-spacing="-2" fill="#FFD21A" stroke="#08162F" stroke-width="3" paint-order="stroke">FRESH</text>
+  <text x="18" y="82" font-family="Arial Black, Arial, sans-serif" font-size="39" font-weight="900"
+        letter-spacing="-2" fill="#FFD21A" stroke="#08162F" stroke-width="3" paint-order="stroke">MERCH</text>
+</svg>
