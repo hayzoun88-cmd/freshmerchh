@@ -5,7 +5,7 @@
 - `styles.css` : design system + responsive
 - `script.js` : interactions du site
 - `studio.html` : configurateur 3D fourni, adapté à la DA FreshMerch
-- `assets/sports/` : visuels locaux des univers sportifs
+- `assets/sports-photos/` : photos locales des univers sportifs
 
 ## DA
 - Navy : `#020711` / `#071225`
@@ -23,5 +23,5 @@ Le Studio utilise Three.js depuis CDN et conserve le patron 3D embarqué du conf
 - Textes : `index.html`
 - Couleurs / espacements : `styles.css`
 - Interactions vitrine : `script.js`
-- Visuels sports : `assets/sports/*.svg`
+- Visuels sports : `assets/sports-photos/*.jpg`
 - Configurateur : `studio.html`

@@ -39,7 +39,7 @@
   <!-- =========================================================
        INTRO
   ========================================================== -->
-  <div class="intro" id="intro" aria-hidden="true">
+  <div class="intro" id="intro" aria-hidden="false">
     <div class="intro__grid"></div>
     <div class="intro__glow"></div>
     <div class="intro__brand">
@@ -74,7 +74,7 @@
 
     <a class="button button--small header-cta" href="#contact">Parler de mon projet <span aria-hidden="true">↗</span></a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+    <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="mobileMenu" aria-expanded="false">
       <span></span><span></span>
     </button>
   </header>
@@ -247,9 +247,9 @@
           </p>
 
           <div class="product__switcher" role="tablist" aria-label="Présentation du produit">
-            <button class="is-active" data-view="front">FRONT</button>
-            <button data-view="detail">DETAIL</button>
-            <button data-view="scale">SCALE</button>
+            <button class="is-active" data-view="front" role="tab" aria-selected="true" tabindex="0">FRONT</button>
+            <button data-view="detail" role="tab" aria-selected="false" tabindex="-1">DETAIL</button>
+            <button data-view="scale" role="tab" aria-selected="false" tabindex="-1">SCALE</button>
           </div>
 
           <div class="product__facts">
@@ -323,7 +323,7 @@
         <h2>Votre prochain<br><em>maillot commence ici.</em></h2>
         <p>Parlez-nous de votre projet. Une idée, un club, une équipe, une marque ou un événement.</p>
 
-        <form class="contact-form" id="contactForm" novalidate>
+        <form class="contact-form" id="contactForm">
           <div class="contact-form__row">
             <div class="contact-form__field">
               <label for="cf-name">Nom</label>

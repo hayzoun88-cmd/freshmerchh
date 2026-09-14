@@ -17,9 +17,12 @@ function initIntro() {
   if (!intro) return;
 
   document.body.classList.add("is-locked");
+  skip?.focus({ preventScroll: true });
 
   const closeIntro = () => {
     intro.classList.add("is-done");
+    intro.setAttribute("aria-hidden", "true");
+    intro.inert = true;
     document.body.classList.remove("is-locked");
     sessionStorage.setItem("freshmerch-intro-seen", "1");
   };
@@ -28,6 +31,8 @@ function initIntro() {
 
   if (sessionStorage.getItem("freshmerch-intro-seen") === "1") {
     intro.classList.add("is-done");
+    intro.setAttribute("aria-hidden", "true");
+    intro.inert = true;
     document.body.classList.remove("is-locked");
   } else {
     window.setTimeout(closeIntro, 3200);
@@ -56,20 +61,27 @@ function initMobileMenu() {
 
   const close = () => {
     toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Ouvrir le menu");
     menu.setAttribute("aria-hidden", "true");
     menu.classList.remove("is-open");
     document.body.classList.remove("is-locked");
+    toggle.focus({ preventScroll: true });
   };
 
   toggle.addEventListener("click", () => {
     const open = !menu.classList.contains("is-open");
     toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
     menu.setAttribute("aria-hidden", String(!open));
     menu.classList.toggle("is-open", open);
     document.body.classList.toggle("is-locked", open);
+    if (open) $(".mobile-menu__inner a", menu)?.focus({ preventScroll: true });
   });
 
   $$("#mobileMenu a").forEach(link => link.addEventListener("click", close));
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && menu.classList.contains("is-open")) close();
+  });
 }
 
 /* ============================================================
@@ -220,8 +232,15 @@ function initProductSwitcher() {
 
   buttons.forEach(button => {
     button.addEventListener("click", () => {
-      buttons.forEach(item => item.classList.remove("is-active"));
+      buttons.forEach(item => {
+        item.classList.remove("is-active");
+        item.setAttribute("aria-selected", "false");
+        item.setAttribute("tabindex", "-1");
+      });
       button.classList.add("is-active");
+      button.setAttribute("aria-selected", "true");
+      button.setAttribute("tabindex", "0");
+      button.focus({ preventScroll: true });
 
       const view = button.dataset.view;
       if (view === "detail") {
@@ -276,6 +295,11 @@ function initContactForm() {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
     const name = $("#cf-name", form).value.trim();
     const email = $("#cf-email", form).value.trim();

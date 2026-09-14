@@ -210,7 +210,7 @@ section{position:relative}
 .product__caption{position:absolute;bottom:16px;left:10px;font-size:11px;letter-spacing:.18em;color:#8390a5}
 .product__copy h2{font:600 clamp(42px,5vw,70px)/.96 var(--font-display);letter-spacing:-.055em;margin:20px 0 28px}
 .product__copy>p{color:#78859a;font-size:18px;line-height:1.75;max-width:520px}
-.product__switcher{display:flex;gap:0;margin:42px 0 30px;border-bottom:1px solid var(--line-dark)}
+.product__switcher{display:flex;flex-wrap:wrap;gap:0;margin:42px 0 30px;border-bottom:1px solid var(--line-dark)}
 .product__switcher button{background:none;border:0;padding:14px 18px 14px 0;margin-right:22px;color:#8893a5;font-size:12px;letter-spacing:.16em;cursor:pointer;position:relative}
 .product__switcher button:after{content:"";position:absolute;left:0;bottom:-1px;width:0;height:2px;background:var(--blue);transition:width var(--fast)}
 .product__switcher button.is-active{color:var(--ink)}.product__switcher button.is-active:after{width:100%}
@@ -313,12 +313,17 @@ section{position:relative}
   .work-grid{grid-template-columns:1fr 1fr;grid-auto-rows:250px}.work-card--big{grid-row:span 2}.work-card--wide{grid-column:1 / 3}
   .cta h2{font-size:clamp(54px,14vw,82px)}.footer__top{display:block}.footer__columns{grid-template-columns:1fr 1fr;margin-top:45px}.footer__bottom{display:grid;grid-template-columns:1fr 1fr}.footer__bottom a{text-align:right}
   .contact-form__row{grid-template-columns:1fr}
+  .contact-form button[type="submit"]{width:100%}
+  .marquee{margin-top:36px}.marquee+.univers{padding-top:36px}
 }
 @media (max-width:480px){
   .hero__actions .button{width:100%}.hero__meta{gap:17px}.hero__visual{height:43vh}.hero__scroll{display:none}
   .product__facts{grid-template-columns:1fr}.product__visual{min-height:390px}
   .work-grid{grid-template-columns:1fr;grid-auto-rows:260px}.work-card--big{grid-row:auto;min-height:360px}.work-card--wide{grid-column:auto}
   .cta__actions .button{width:100%}
+  .footer__columns{grid-template-columns:1fr!important;gap:24px}
+  .footer__bottom{grid-template-columns:1fr!important;gap:8px}.footer__bottom a{text-align:left!important}
+  .marquee__track{gap:36px}.marquee__track span{font-size:13px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}.intro__jersey,.hero__jersey,.product__jersey{animation:none}.reveal{transition:none;opacity:1;transform:none}.button,.card-art,.universe-card,.work-art{transition:none}
