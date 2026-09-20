@@ -4,9 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="app-version" content="1.2-standalone">
-<title>FreshMerch Studio — Configurateur 3D</title>
+<meta name="description" content="Configurateur 3D FreshMerch — personnalisez les couleurs, logos et textes de votre maillot et visualisez le rendu en temps réel avant de demander un devis.">
+<meta name="theme-color" content="#020711">
+<meta property="og:title" content="Studio 3D — Configurateur maillot | FreshMerch">
+<meta property="og:description" content="Personnalisez les couleurs, logos et textes de votre maillot et visualisez le rendu en 3D en temps réel.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.freshmerch.fr/studio.html">
+<meta property="og:image" content="https://www.freshmerch.fr/assets/jersey-cutout.webp">
+<meta property="og:locale" content="fr_FR">
+<link rel="canonical" href="https://www.freshmerch.fr/studio.html">
+<link rel="icon" href="assets/freshmerch-logo.png">
+<title>Studio 3D — Configurateur maillot | FreshMerch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@700&family=Bebas+Neue&family=Teko:wght@700&family=Russo+One&family=Black+Ops+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@700&family=Bebas+Neue&family=Teko:wght@700&family=Russo+One&family=Black+Ops+One&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <script type="importmap">
 {"imports":{"three":"https://unpkg.com/three@0.184.0/build/three.module.js","three/addons/controls/OrbitControls.js":"https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js"}}
 </script>
@@ -96,16 +106,53 @@
 :root{color-scheme:dark}
 body{background:#020711!important;overflow:hidden}
 .studio-header{position:fixed;z-index:10000;left:0;right:0;top:0;height:74px;padding:0 28px;display:flex;align-items:center;gap:36px;background:rgba(2,7,17,.88);border-bottom:1px solid rgba(255,255,255,.09);backdrop-filter:blur(18px);font-family:"Segoe UI",system-ui,sans-serif}
-.studio-brand img{width:106px;display:block}.studio-brand{display:flex;align-items:center}.studio-header nav{display:flex;gap:28px;align-items:center;flex:1}.studio-header nav a{color:#9aa7bb;text-decoration:none;font-size:15px;transition:.2s}.studio-header nav a:hover,.studio-header nav a.is-active{color:#fff}.studio-header nav a.is-active{position:relative}.studio-header nav a.is-active:after{content:"";position:absolute;left:0;right:0;height:2px;bottom:-28px;background:#ffed00}.studio-quote{background:#ffed00;color:#061a33;text-decoration:none;border-radius:999px;padding:12px 18px;font-weight:800;font-size:14px}.studio-quote span{margin-left:8px}.fmc{--navy:#0d2a4e;--navy2:#061a33;--yellow:#ffed00;--ink:#f7f9fd;--mute:#8c99ad;--line:rgba(255,255,255,.10);--bg:#081225;background:#020711!important;grid-template-columns:1fr 430px!important;height:calc(100vh - 74px)!important;min-height:620px!important;margin-top:74px!important}.fmc .view{background:radial-gradient(ellipse at 50% 38%,#112c59 0%,#071225 48%,#020711 100%)!important}.fmc .view:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 85%,rgba(255,237,0,.10),transparent 20%),linear-gradient(90deg,transparent 0%,rgba(41,123,255,.05) 50%,transparent 100%)}.fmc .panel{background:#050c18!important;border-left:1px solid rgba(255,255,255,.10)!important}.fmc .steps,.fmc .steps button,.fmc .foot{background:#050c18!important;border-color:rgba(255,255,255,.10)!important}.fmc .steps button{color:#7f8ca0}.fmc .steps button.on{color:#fff;border-bottom-color:#ffed00}.fmc .steps button i{background:#101d32;color:#ffed00}.fmc .steps button.on i{background:#ffed00;color:#061a33}.fmc h3{color:#fff}.fmc p.help,.fmc .lbl{color:#8795a9}.fmc .pieces button,.fmc .card,.fmc .btn,.fmc input[type=text],.fmc select,.fmc .item,.fmc .fonts button{background:#081225!important;color:#f5f7fb!important;border-color:rgba(255,255,255,.12)!important}.fmc .pieces button.on,.fmc .btn.dark{background:#0d2a4e!important;border-color:#ffed00!important}.fmc .btn.y{background:#ffed00!important;color:#061a33!important;border-color:#ffed00!important}.fmc .card.on{box-shadow:0 0 0 2px #ffed00!important;border-color:#ffed00!important}.fmc .card span,.fmc .item .hd,.fmc .recap div{color:#f4f6fa}.fmc .views{background:rgba(5,12,24,.92)!important;border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 30px rgba(0,0,0,.35)}.fmc .views button{color:#dfe6f2}.fmc .views button:hover,.fmc .views button.on{background:#ffed00;color:#061a33}.fmc .tip{background:#ffed00;color:#061a33}.fmc .loader{background:rgba(2,7,17,.92);color:#fff}.fmc .loader i{border-color:rgba(255,255,255,.12);border-top-color:#ffed00}.fmc .brand span{color:#8795a9}.fmc .drop{border-color:rgba(255,255,255,.16);background:#081225;color:#8795a9}.fmc .drop b{color:#ffed00}.fmc .fonts button.on{background:#0d2a4e!important;border-color:#ffed00!important;color:#fff}.fmc .item.on{border-color:#ffed00!important}.fmc .slider input{accent-color:#ffed00}.fmc .foot .btn{min-height:44px}
-@media(max-width:900px){body{overflow:auto}.studio-header{height:60px;padding:0 14px;gap:10px}.studio-header nav{gap:14px;flex:1;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.studio-header nav::-webkit-scrollbar{display:none}.studio-header nav a{font-size:13px;white-space:nowrap}.studio-header nav a.is-active:after{bottom:-20px}.studio-quote{margin-left:0;font-size:13px;padding:13px 16px;white-space:nowrap}.fmc{height:auto!important;min-height:0!important;margin-top:60px!important;grid-template-columns:1fr!important;grid-template-rows:56vh auto!important}.fmc .view{min-height:56vh}.fmc .panel{border-left:0!important;border-top:1px solid rgba(255,255,255,.10)!important}}
+.studio-brand img{width:106px;display:block}.studio-brand{display:flex;align-items:center}
+.studio-header nav{display:flex;gap:26px;align-items:center;flex:1;font-family:"DM Sans",system-ui,sans-serif}
+.studio-header nav a{color:#9aa7bb;text-decoration:none;font-size:13px;transition:.2s;position:relative}
+.studio-header nav a:hover,.studio-header nav a[aria-current="page"]{color:#fff}
+.studio-header nav a[aria-current="page"]:after{content:"";position:absolute;left:0;right:0;height:2px;bottom:-28px;background:#ffed00}
+.studio-quote{background:#ffed00;color:#061a33;text-decoration:none;border-radius:999px;padding:12px 18px;font-weight:800;font-size:13px;font-family:"DM Sans",system-ui,sans-serif}
+.studio-quote span{margin-left:8px}
+.studio-menu-toggle{display:none;background:none;border:0;width:40px;height:40px;margin-left:auto;cursor:pointer;flex-shrink:0}
+.studio-menu-toggle span{display:block;width:20px;height:1px;background:#fff;margin:6px auto;transition:transform .25s}
+.studio-mobile-nav{position:fixed;inset:0;background:#020711;z-index:10001;display:none;transform:translateY(-100%);transition:transform .5s cubic-bezier(.2,.75,.2,1)}
+.studio-mobile-nav.is-open{transform:none}
+.studio-mobile-nav__inner{height:100%;display:flex;flex-direction:column;justify-content:center;padding:40px;gap:2px}
+.studio-mobile-nav__inner a{font:600 clamp(30px,10vw,52px) "Space Grotesk",system-ui,sans-serif;color:#fff;text-decoration:none;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between}
+.studio-mobile-nav__inner a[aria-current="page"]{color:#ffed00}
+.studio-mobile-nav__close{position:absolute;top:18px;right:18px;background:none;border:0;color:#fff;font-size:14px;padding:12px;cursor:pointer}
+.fmc{--navy:#0d2a4e;--navy2:#061a33;--yellow:#ffed00;--ink:#f7f9fd;--mute:#8c99ad;--line:rgba(255,255,255,.10);--bg:#081225;background:#020711!important;grid-template-columns:1fr 430px!important;height:calc(100vh - 74px)!important;min-height:620px!important;margin-top:74px!important}.fmc .view{background:radial-gradient(ellipse at 50% 38%,#112c59 0%,#071225 48%,#020711 100%)!important}.fmc .view:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 85%,rgba(255,237,0,.10),transparent 20%),linear-gradient(90deg,transparent 0%,rgba(41,123,255,.05) 50%,transparent 100%)}.fmc .panel{background:#050c18!important;border-left:1px solid rgba(255,255,255,.10)!important}.fmc .steps,.fmc .steps button,.fmc .foot{background:#050c18!important;border-color:rgba(255,255,255,.10)!important}.fmc .steps button{color:#7f8ca0}.fmc .steps button.on{color:#fff;border-bottom-color:#ffed00}.fmc .steps button i{background:#101d32;color:#ffed00}.fmc .steps button.on i{background:#ffed00;color:#061a33}.fmc h3{color:#fff}.fmc p.help,.fmc .lbl{color:#8795a9}.fmc .pieces button,.fmc .card,.fmc .btn,.fmc input[type=text],.fmc select,.fmc .item,.fmc .fonts button{background:#081225!important;color:#f5f7fb!important;border-color:rgba(255,255,255,.12)!important}.fmc .pieces button.on,.fmc .btn.dark{background:#0d2a4e!important;border-color:#ffed00!important}.fmc .btn.y{background:#ffed00!important;color:#061a33!important;border-color:#ffed00!important}.fmc .card.on{box-shadow:0 0 0 2px #ffed00!important;border-color:#ffed00!important}.fmc .card span,.fmc .item .hd,.fmc .recap div{color:#f4f6fa}.fmc .views{background:rgba(5,12,24,.92)!important;border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 30px rgba(0,0,0,.35)}.fmc .views button{color:#dfe6f2}.fmc .views button:hover,.fmc .views button.on{background:#ffed00;color:#061a33}.fmc .tip{background:#ffed00;color:#061a33}.fmc .loader{background:rgba(2,7,17,.92);color:#fff}.fmc .loader i{border-color:rgba(255,255,255,.12);border-top-color:#ffed00}.fmc .brand span{color:#8795a9}.fmc .drop{border-color:rgba(255,255,255,.16);background:#081225;color:#8795a9}.fmc .drop b{color:#ffed00}.fmc .fonts button.on{background:#0d2a4e!important;border-color:#ffed00!important;color:#fff}.fmc .item.on{border-color:#ffed00!important}.fmc .slider input{accent-color:#ffed00}.fmc .foot .btn{min-height:44px}
+@media(max-width:900px){body{overflow:auto}.studio-header{height:60px;padding:0 14px;gap:10px}.studio-header nav{display:none}.studio-menu-toggle{display:block}.studio-mobile-nav{display:block}.studio-quote{margin-left:0;font-size:13px;padding:13px 16px;white-space:nowrap}.fmc{height:auto!important;min-height:0!important;margin-top:60px!important;grid-template-columns:1fr!important;grid-template-rows:56vh auto!important}.fmc .view{min-height:56vh}.fmc .panel{border-left:0!important;border-top:1px solid rgba(255,255,255,.10)!important}}
 @media(max-width:480px){.studio-header{padding:0 10px}.studio-quote span{display:none}}
 </style>
 </head>
 <body style="margin:0;min-height:100vh;background:#020711">
-<header class="studio-header" aria-label="Navigation Studio FreshMerch">
-  <nav><a href="index.html">Accueil</a><a href="index.html#univers">Univers</a><a class="is-active" href="studio.html">Studio</a></nav>
-  <a class="studio-quote" href="mailto:contact@freshmerch.fr?subject=Demande%20de%20devis%20FreshMerch">Demander un devis <span>↗</span></a>
+<header class="studio-header" aria-label="Navigation FreshMerch">
+  <a class="studio-brand" href="index.html" aria-label="FreshMerch — accueil"><img src="assets/freshmerch-logo.png" alt="FreshMerch"></a>
+  <nav aria-label="Navigation principale">
+    <a href="index.html">Accueil</a>
+    <a href="textile.html">Textile</a>
+    <a href="sport.html">Sport</a>
+    <a href="studio.html" aria-current="page">Studio 3D</a>
+    <a href="a-propos.html">À propos</a>
+  </nav>
+  <a class="studio-quote" href="devis.html">Demander un devis <span>↗</span></a>
+  <button class="studio-menu-toggle" id="studioMenuToggle" aria-label="Ouvrir le menu" aria-controls="studioMobileNav" aria-expanded="false" type="button">
+    <span></span><span></span>
+  </button>
 </header>
+
+<div class="studio-mobile-nav" id="studioMobileNav" aria-hidden="true">
+  <button class="studio-mobile-nav__close" id="studioMenuClose" aria-label="Fermer le menu" type="button">Fermer ✕</button>
+  <div class="studio-mobile-nav__inner">
+    <a href="index.html">Accueil</a>
+    <a href="textile.html">Textile</a>
+    <a href="sport.html">Sport</a>
+    <a href="studio.html" aria-current="page">Studio 3D</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="devis.html">Demander un devis ↗</a>
+  </div>
+</div>
 
 <!-- ===== FICHIER AUTONOME : le patron 3D est embarqué dans data-obj. Aucun fichier externe à déployer.
      Seules dépendances : three.js et les polices Google (CDN, connexion requise).
@@ -131,6 +178,47 @@ body{background:#020711!important;overflow:hidden}
   </div>
 </div>
 
+<script>
+  // Transmet la maquette configurée au formulaire de devis (pas de backend :
+  // les données transitent par sessionStorage le temps de la redirection).
+  window.fmcSubmit = function (data) {
+    try { sessionStorage.setItem('freshmerch-studio-config', JSON.stringify(data)); }
+    catch (e) { /* stockage indisponible : on redirige quand même */ }
+    window.location.href = 'devis.html?from=studio';
+  };
+</script>
+<script>
+  // Menu mobile de l'en-tête Studio (indépendant du configurateur 3D ci-dessous).
+  (function () {
+    var toggle = document.getElementById('studioMenuToggle');
+    var close = document.getElementById('studioMenuClose');
+    var nav = document.getElementById('studioMobileNav');
+    if (!toggle || !nav) return;
+
+    function openMenu() {
+      nav.classList.add('is-open');
+      nav.setAttribute('aria-hidden', 'false');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Fermer le menu');
+    }
+    function closeMenu() {
+      nav.classList.remove('is-open');
+      nav.setAttribute('aria-hidden', 'true');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Ouvrir le menu');
+      toggle.focus({ preventScroll: true });
+    }
+
+    toggle.addEventListener('click', function () {
+      nav.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+    close.addEventListener('click', closeMenu);
+    nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) closeMenu();
+    });
+  })();
+</script>
 <script type="module">
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';

@@ -17,18 +17,19 @@
   <meta name="twitter:image" content="https://www.freshmerch.fr/assets/jersey-cutout.webp">
   <link rel="canonical" href="https://www.freshmerch.fr/">
   <title>FreshMerch — Vos idées prennent forme.</title>
-  <link rel="icon" href="assets/freshmerch-logo.svg">
+  <link rel="icon" href="assets/freshmerch-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>(function(){try{var t=localStorage.getItem("freshmerch-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "FreshMerch",
     "description": "Textile personnalisé, équipements sportifs et créations sur mesure.",
-    "email": "contact@freshmerch.fr",
+    "email": "jules.frescaline@gmail.com",
     "url": "https://www.freshmerch.fr/",
     "image": "https://www.freshmerch.fr/assets/jersey-cutout.webp"
   }
@@ -40,14 +41,11 @@
        INTRO
   ========================================================== -->
   <div class="intro" id="intro" aria-hidden="false">
-    <div class="intro__grid"></div>
-    <div class="intro__glow"></div>
+    <video class="intro__video" id="introVideo" src="assets/video/intro.mp4" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
+    <div class="intro__scrim"></div>
     <div class="intro__brand">
-      <img src="assets/freshmerch-logo.svg" alt="FreshMerch">
+      <img src="assets/freshmerch-logo.png" alt="FreshMerch">
       <span>TEXTILE • SPORT • CRÉATION</span>
-    </div>
-    <div class="intro__product">
-      <img src="assets/jersey-cutout.webp" alt="" class="intro__jersey">
     </div>
     <div class="intro__bottom">
       <span>ENTRER DANS L'UNIVERS</span>
@@ -61,19 +59,24 @@
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"><span></span></div>
 
   <header class="site-header" id="siteHeader">
-    <a class="brand" href="#top" aria-label="FreshMerch — accueil">
-      <img src="assets/freshmerch-logo.svg" alt="FreshMerch">
+    <a class="brand" href="index.html" aria-label="FreshMerch — accueil">
+      <img src="assets/freshmerch-logo.png" alt="FreshMerch">
     </a>
 
     <nav class="desktop-nav" aria-label="Navigation principale">
-      <a href="#univers">Univers</a>
-      <a href="#savoir-faire">Savoir-faire</a>
-      <a href="studio.html">Studio</a>
-      <a href="#process">Process</a>
+      <a href="index.html" aria-current="page">Accueil</a>
+      <a href="textile.html">Textile personnalisé</a>
+      <a href="sport.html">Sport &amp; personnalisation</a>
+      <a href="studio.html">Studio 3D</a>
+      <a href="a-propos.html">À propos</a>
     </nav>
 
-    <a class="button button--small header-cta" href="#contact">Parler de mon projet <span aria-hidden="true">↗</span></a>
+    <a class="button button--small header-cta" href="devis.html">Demander un devis <span aria-hidden="true">↗</span></a>
 
+    <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Activer le mode clair">
+      <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+      <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
     <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-controls="mobileMenu" aria-expanded="false">
       <span></span><span></span>
     </button>
@@ -82,11 +85,12 @@
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <div class="mobile-menu__inner">
       <span class="eyebrow">FRESHMERCH / NAVIGATION</span>
-      <a href="#univers">Univers <span>01</span></a>
-      <a href="#savoir-faire">Savoir-faire <span>02</span></a>
-      <a href="studio.html">Studio <span>03</span></a>
-      <a href="#process">Process <span>04</span></a>
-      <a href="#contact">Parler de mon projet <span aria-hidden="true">↗</span></a>
+      <a href="index.html" aria-current="page">Accueil <span>01</span></a>
+      <a href="textile.html">Textile personnalisé <span>02</span></a>
+      <a href="sport.html">Sport &amp; personnalisation <span>03</span></a>
+      <a href="studio.html">Studio 3D <span>04</span></a>
+      <a href="a-propos.html">À propos <span>05</span></a>
+      <a href="devis.html">Demander un devis <span aria-hidden="true">↗</span></a>
     </div>
   </div>
 
@@ -110,7 +114,7 @@
           </p>
 
           <div class="hero__actions">
-            <a class="button button--yellow" href="#contact">Demander un devis <span aria-hidden="true">↗</span></a>
+            <a class="button button--yellow" href="devis.html">Demander un devis <span aria-hidden="true">↗</span></a>
             <a class="button button--ghost" href="#univers">Explorer les univers <span aria-hidden="true">↓</span></a>
           </div>
 
@@ -144,42 +148,45 @@
     </div>
 
     <!-- =======================================================
-         UNIVERS
+         UNIVERS (teaser — le détail vit sur les pages dédiées)
     ======================================================== -->
     <section class="univers section-light" id="univers">
       <div class="container">
         <div class="section-head reveal">
           <div>
             <span class="eyebrow eyebrow--dark">01 / UNIVERS</span>
-            <h2>Un textile qui<br><em>s'adapte à vous.</em></h2>
+            <h2>Un métier,<br><em>trois façons d'y entrer.</em></h2>
           </div>
-          <p>Du terrain aux événements, chaque pièce est construite autour de votre identité.</p>
+          <p>Textile du quotidien, tenues de sport techniques ou configurateur 3D pour visualiser votre projet avant de commander : chaque univers a sa page dédiée.</p>
         </div>
 
-        <div class="universe-grid universe-grid--editorial">
-          <a class="universe-card universe-card--large reveal" href="studio.html?sport=football">
-            <span class="card-number">01</span><div class="card-art"><img src="assets/sports-photos/football.jpg" alt="Match de football" loading="lazy"></div>
-            <div class="card-content"><span>SPORT / 01</span><h3>Football</h3><small>Maillots • ensembles • staff</small><strong aria-hidden="true">↗</strong></div>
+        <div class="universe-grid universe-grid--home">
+          <a class="universe-card reveal" href="sport.html">
+            <span class="card-number">01</span>
+            <div class="card-art"><img src="assets/sports-photos/football.jpg" alt=""></div>
+            <div class="card-content">
+              <span>SPORT &amp; SUBLIMATION</span>
+              <h3>Maillots &amp; tenues d'équipe</h3>
+              <small>Design intégré à la fibre, pensé pour la performance et l'identité de votre club.</small>
+            </div>
           </a>
-          <a class="universe-card reveal" href="studio.html?sport=handball">
-            <span class="card-number">02</span><div class="card-art"><img src="assets/sports-photos/handball.jpg" alt="Match de handball" loading="lazy"></div>
-            <div class="card-content"><span>SPORT / 02</span><h3>Handball</h3><small>Performance • identité club</small><strong aria-hidden="true">↗</strong></div>
+          <a class="universe-card reveal" href="textile.html">
+            <span class="card-number">02</span>
+            <div class="card-art card-art--textile"><img src="assets/jersey-cutout.webp" alt=""></div>
+            <div class="card-content">
+              <span>TEXTILE PERSONNALISÉ</span>
+              <h3>T-shirts, sweats &amp; polos</h3>
+              <small>Flocage ou broderie, pour votre entreprise, association ou événement.</small>
+            </div>
           </a>
-          <a class="universe-card reveal" href="studio.html?sport=basketball">
-            <span class="card-number">03</span><div class="card-art"><img src="assets/sports-photos/basketball.jpg" alt="Match de basketball" loading="lazy"></div>
-            <div class="card-content"><span>SPORT / 03</span><h3>Basket</h3><small>Design • sublimation</small><strong aria-hidden="true">↗</strong></div>
-          </a>
-          <a class="universe-card reveal" href="studio.html?sport=rugby">
-            <span class="card-number">04</span><div class="card-art"><img src="assets/sports-photos/rugby.jpg" alt="Match de rugby" loading="lazy"></div>
-            <div class="card-content"><span>SPORT / 04</span><h3>Rugby</h3><small>Robustesse • identité équipe</small><strong aria-hidden="true">↗</strong></div>
-          </a>
-          <a class="universe-card reveal" href="studio.html?sport=running">
-            <span class="card-number">05</span><div class="card-art"><img src="assets/sports-photos/running.jpg" alt="Course de running" loading="lazy"></div>
-            <div class="card-content"><span>SPORT / 05</span><h3>Running</h3><small>Technique • légèreté</small><strong aria-hidden="true">↗</strong></div>
-          </a>
-          <a class="universe-card universe-card--wide reveal" href="studio.html?sport=esports">
-            <span class="card-number">06</span><div class="card-art"><img src="assets/sports-photos/esports.jpg" alt="Tournoi esports" loading="lazy"></div>
-            <div class="card-content"><span>SPORT / 06</span><h3>Esports</h3><small>Performance • identité digitale</small><strong aria-hidden="true">↗</strong></div>
+          <a class="universe-card reveal" href="studio.html">
+            <span class="card-number">03</span>
+            <div class="card-art card-art--studio"><i></i><b></b></div>
+            <div class="card-content">
+              <span>CONFIGURATEUR 3D</span>
+              <h3>Studio</h3>
+              <small>Composez votre maillot en direct et visualisez le rendu avant de commander.</small>
+            </div>
           </a>
         </div>
       </div>
@@ -217,7 +224,7 @@
               <span>03</span><div><h3>Sublimation</h3><p>Des couleurs et détails intégrés directement au textile.</p></div><b aria-hidden="true">↗</b>
             </article>
             <article class="craft-row reveal">
-              <span>04</span><div><h3>Coupe & finition</h3><p>Une pièce pensée pour tomber juste et durer.</p></div><b aria-hidden="true">↗</b>
+              <span>04</span><div><h3>Coupe &amp; finition</h3><p>Une pièce pensée pour tomber juste et durer.</p></div><b aria-hidden="true">↗</b>
             </article>
             <article class="craft-row reveal">
               <span>05</span><div><h3>Contrôle qualité</h3><p>Un regard sur chaque détail avant que le textile arrive sur le terrain.</p></div><b aria-hidden="true">↗</b>
@@ -228,76 +235,13 @@
     </section>
 
     <!-- =======================================================
-         PRODUCT
-    ======================================================== -->
-    <section class="product section-light" id="produit">
-      <div class="container product__layout">
-        <div class="product__visual reveal" data-parallax="0.018">
-          <div class="product__orb"></div>
-          <img src="assets/jersey-cutout.webp" alt="Maillot FreshMerch — vue produit" class="product__jersey" loading="lazy">
-          <div class="product__caption">FM / PERFORMANCE JERSEY / 001</div>
-        </div>
-
-        <div class="product__copy reveal">
-          <span class="eyebrow eyebrow--dark">03 / LE PRODUIT</span>
-          <h2>Un maillot ne se contente pas d'afficher une identité.<br><em>Il la porte.</em></h2>
-          <p>
-            Le produit reste au centre. Pas d'effets inutiles : de l'espace,
-            de la matière, de la lumière et une vraie présence visuelle.
-          </p>
-
-          <div class="product__switcher" role="tablist" aria-label="Présentation du produit">
-            <button class="is-active" data-view="front" role="tab" aria-selected="true" tabindex="0">FRONT</button>
-            <button data-view="detail" role="tab" aria-selected="false" tabindex="-1">DETAIL</button>
-            <button data-view="scale" role="tab" aria-selected="false" tabindex="-1">SCALE</button>
-          </div>
-
-          <div class="product__facts">
-            <div><strong>01</strong><span>Identité<br>sur mesure</span></div>
-            <div><strong>02</strong><span>Confort<br>& performance</span></div>
-            <div><strong>03</strong><span>Finition<br>premium</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =======================================================
-         STUDIO
-    ======================================================== -->
-    <section class="studio section-dark" id="studio">
-      <div class="container">
-        <div class="studio__shell reveal">
-          <div class="studio__copy">
-            <span class="eyebrow">04 / STUDIO</span>
-            <h2>Créez votre<br><em>propre maillot.</em></h2>
-            <p>Une interface pensée pour passer de l'idée à une direction créative concrète.</p>
-            <div class="studio__tools">
-              <button class="tool is-active" data-style="01"><i></i>01 / SIGNATURE</button>
-              <button class="tool" data-style="02"><i></i>02 / IMPACT</button>
-              <button class="tool" data-style="03"><i></i>03 / MINIMAL</button>
-            </div>
-            <a class="button button--yellow" href="studio.html">Ouvrir le Studio <span aria-hidden="true">↗</span></a>
-          </div>
-
-          <div class="studio__preview">
-            <div class="studio-grid"></div>
-            <div class="studio-orbit"></div>
-            <img src="assets/jersey-cutout.webp" alt="" class="studio__jersey" id="studioJersey" loading="lazy">
-            <div class="studio-label">LIVE PREVIEW <span></span></div>
-            <div class="studio-side-note">COLOR / SHAPE / IDENTITY</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =======================================================
          PROCESS
     ======================================================== -->
     <section class="process section-light" id="process">
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head section-head--light reveal">
           <div>
-            <span class="eyebrow eyebrow--dark">05 / PROCESS</span>
+            <span class="eyebrow eyebrow--dark">03 / PROCESS</span>
             <h2>De l'idée à<br><em>la pièce.</em></h2>
           </div>
           <p>Un parcours simple, lisible et accompagné à chaque étape.</p>
@@ -314,16 +258,16 @@
     </section>
 
     <!-- =======================================================
-         CTA
+         CTA / CONTACT RAPIDE
     ======================================================== -->
-    <section class="cta" id="contact">
+    <section class="cta cta--photo" id="contact">
       <div class="cta__rings"></div>
       <div class="container cta__inner reveal">
-        <span class="eyebrow">07 / CONTACT</span>
-        <h2>Votre prochain<br><em>maillot commence ici.</em></h2>
-        <p>Parlez-nous de votre projet. Une idée, un club, une équipe, une marque ou un événement.</p>
+        <span class="eyebrow">04 / CONTACT</span>
+        <h2>Votre prochain<br><em>projet commence ici.</em></h2>
+        <p>Un message rapide suffit pour démarrer l'échange. Pour un devis détaillé, direction la page dédiée.</p>
 
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form js-lead-form" id="contactForm" data-subject="Nouveau projet FreshMerch">
           <div class="contact-form__row">
             <div class="contact-form__field">
               <label for="cf-name">Nom</label>
@@ -343,7 +287,8 @@
         </form>
 
         <div class="cta__actions">
-          <a class="button button--light button--large" href="mailto:contact@freshmerch.fr">contact@freshmerch.fr</a>
+          <a class="button button--light button--large" href="devis.html">Demande de devis détaillée <span aria-hidden="true">↗</span></a>
+          <a class="button button--light button--large" href="mailto:jules.frescaline@gmail.com">jules.frescaline@gmail.com</a>
         </div>
       </div>
     </section>
@@ -354,16 +299,16 @@
   ========================================================== -->
   <footer class="footer">
     <div class="container footer__top">
-      <a class="brand" href="#top"><img src="assets/freshmerch-logo.svg" alt="FreshMerch"></a>
+      <a class="brand" href="index.html"><img src="assets/freshmerch-logo.png" alt="FreshMerch"></a>
       <div class="footer__columns">
-        <div><span>EXPLORER</span><a href="#univers">Univers</a><a href="#savoir-faire">Savoir-faire</a><a href="studio.html">Studio</a></div>
-        <div><span>PROJET</span><a href="#process">Process</a><a href="#contact">Contact</a></div>
-        <div><span>CONTACT</span><a href="mailto:contact@freshmerch.fr">Email</a><a href="#contact">Demander un devis</a></div>
+        <div><span>EXPLORER</span><a href="textile.html">Textile</a><a href="sport.html">Sport</a><a href="studio.html">Studio 3D</a></div>
+        <div><span>PROJET</span><a href="a-propos.html">À propos</a><a href="devis.html">Devis</a></div>
+        <div><span>CONTACT</span><a href="mailto:jules.frescaline@gmail.com">Email</a><a href="devis.html">Demander un devis</a></div>
       </div>
     </div>
     <div class="container footer__bottom"><span>© <span id="year"></span> FreshMerch</span><span>TEXTILE / SPORT / CRÉATION</span><a href="#top">Retour en haut <span aria-hidden="true">↑</span></a></div>
     <div class="container footer__credits">
-      Photos section Univers : <a href="https://commons.wikimedia.org/wiki/File:Match_de_football_UAC09.jpg" target="_blank" rel="noopener">Keystone.ajh</a> (CC BY-SA 4.0) ·
+      Photos sport : <a href="https://commons.wikimedia.org/wiki/File:Match_de_football_UAC09.jpg" target="_blank" rel="noopener">Keystone.ajh</a> (CC BY-SA 4.0) ·
       <a href="https://commons.wikimedia.org/wiki/File:Espagne-_Slov%C3%A9nie_bronze_handball_M_20240811_091447_Action_espagnole.jpg" target="_blank" rel="noopener">RhôneA7</a> (CC BY 4.0) ·
       <a href="https://commons.wikimedia.org/wiki/File:141100_-_Wheelchair_basketball_Troy_Sachs_action_-_3b_-_2000_Sydney_match_photo.jpg" target="_blank" rel="noopener">Sport the Library</a>,
       <a href="https://commons.wikimedia.org/wiki/File:301000_-_Wheelchair_rugby_Brad_Dubberley_action_-_3b_-_2000_Sydney_match_photo.jpg" target="_blank" rel="noopener">Sport the Library</a> (CC BY-SA 3.0) ·
@@ -375,4 +320,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
