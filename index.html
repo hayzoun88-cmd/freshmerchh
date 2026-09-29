@@ -83,6 +83,7 @@ html[data-theme="light"] #top input::placeholder,html[data-theme="light"] #top t
 html[data-theme="light"] #top [style*="background: rgb(255, 237, 0)"]{color:#101827!important}
 html[data-theme="light"] #top [style*="background: rgb(7, 18, 37)"][style*="color: rgb(255, 237, 0)"]{background:#0c1526!important;color:#ffed00!important}
 html[data-theme="light"] #top img[src*="jersey-cutout"],html[data-theme="light"] #top img[src*="hoodie-cutout"]{filter:drop-shadow(0 30px 34px rgba(12,21,38,.28))!important}
+html[data-theme="light"] #top img[src*="freshmerch-logo"]{filter:drop-shadow(1px 0 0 #020711) drop-shadow(-1px 0 0 #020711) drop-shadow(0 1px 0 #020711) drop-shadow(0 -1px 0 #020711)!important}
 </style>
 </helmet>
 <div id="top" style="background:#020711;color:#fff;font-family:'DM Sans',system-ui,sans-serif;font-size:17px;line-height:1.65;overflow-x:clip">
@@ -92,7 +93,7 @@ html[data-theme="light"] #top img[src*="jersey-cutout"],html[data-theme="light"]
       <source src="assets/intro.mp4" type="video/mp4">
     </video>
     <img src="assets/freshmerch-logo.png" alt="FreshMerch" style="position:absolute;top:20px;left:20px;height:34px;width:auto;z-index:2;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))">
-    <button type="button" onClick="{{ skipIntro }}" style="position:absolute;bottom:28px;right:28px;z-index:2;display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 18px;border-radius:999px;border:1px solid #ffed00;background:rgba(2,7,17,.55);backdrop-filter:blur(8px);color:#ffed00;font:inherit;font-size:13px;font-weight:700;letter-spacing:.02em;cursor:pointer" style-hover="background:rgba(255,237,0,.12)">Passer la vidéo <span aria-hidden="true">→</span></button>
+    <button type="button" onClick="{{ skipIntro }}" style="position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0;border:none;background:none;color:#fff;font:inherit;font-size:13px;font-weight:700;letter-spacing:.02em;cursor:pointer;text-shadow:0 2px 6px rgba(0,0,0,.5)" style-hover="color:#ffed00">Passer la vidéo <span aria-hidden="true">→</span></button>
   </div>
   </sc-if>
   <header style="position:sticky;top:0;z-index:50;padding:14px 24px;background:rgba(2,7,17,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)">
