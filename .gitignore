@@ -2,3 +2,5 @@
 backup/
 scraps/
 uploads/
+*.bak
+*.mp4.bak
